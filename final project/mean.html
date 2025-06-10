@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCCU ZOO 政大動物園</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color:#757575;
+        }
+
+        .bar {
+            background-color: rgb(217, 78, 48);
+            position: sticky;
+            top: 0px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            margin-left: 3%;
+            font-size: 40px;
+            color: #ffffff;
+            font-family: "Lilita One";
+        }
+
+        .botton {
+            margin-right: 3%;
+            width: 35px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(143, 143, 143, 0.858);
+            display: none;
+            z-index: 100;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+
+        .menu {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 30%;
+            background-color: #757575;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            /* 預設隱藏 */
+            z-index: 999;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin: 10px 0;
+            font-size: x-large;
+            line-height: 200%;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #FFDF82;
+            font-weight: bold;
+        }
+
+        .menu.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .picture {
+            background-image: url(mean.jpg);
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            aspect-ratio: 6000/4267;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .picture>a{
+            height: 0%;
+        }
+
+        .picture>a>img {
+            width: 21vw;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .picture>a>img:hover {
+            transform: translateY(-8px);
+            /* 往上飄一點 */
+            filter:
+                drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25))
+                drop-shadow(0 0 20px rgba(217, 48, 48, 0.8))
+        }
+
+        .news {
+            display: flex;
+            justify-content: center;
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .icon {
+            display: flex;
+            gap: 5%;
+            width: 40%;
+        }
+
+        .news>.icon>img {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+        }
+
+        .tag {
+            color: #FFDF82;
+            font-size: x-large;
+            font-weight: 700;
+            line-height: 24px;
+            /* 100% */
+        }
+
+        .title {
+            margin-top: 10px;
+            color: #F5F5F5;
+            font-size: xx-large;
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .text {
+            margin-left: 3%;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px dashed #505050;
+            background: rgba(217, 78, 48, 0.85);
+            width: 40%;
+            font-size: x-large;
+            color: #ffffff;
+            line-height: 180%;
+            text-align: justify;
+        }
+
+        .name {
+            font-weight: 800;
+        }
+
+        .link {
+            color: #FFDF82;
+            text-align: right;
+            font-size: x-large;
+            font-weight: 700;
+            line-height: 200%;
+            text-decoration: underline solid;
+        }
+
+        .end {
+            background-color: #D94E30;
+            margin-top: 100px;
+            padding: 15px;
+            box-shadow: 4px 0px 4px 1px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 200%;
+            font-family: "Lilita One";
+            font-weight: bolder;
+            color:#ffffff
+        }
+
+        @media (max-width:1024px) {
+            .news {
+                display: block;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20%;
+            }
+
+            .icon {
+                width: 80%;
+                gap: 5%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .text {
+                width: 70%;
+                margin-top: 3%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width:768px) {
+            .overlay{
+                top:70px
+            }
+            .menu{
+                top:90px
+            }
+            .menu li {
+                font-size: large;
+            }
+            .bar {
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .botton>img {
+                width: 80%;
+            }
+
+            .news>.icon>img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .tag {
+                font-size: large;
+            }
+
+            .title {
+                font-size: x-large;
+            }
+
+            .text {
+                font-size: large;
+            }
+
+            .link>a {
+                font-size: large;
+            }
+
+            .end {
+                font-size: small;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--訂住的bar-->
+    <div class="bar">
+        <div class="logo">
+            NCCU ZOO
+        </div>
+        <div class="botton">
+            <img class="menu-button" src="w_menu botton.svg" style="cursor:pointer">
+            <div class="overlay" id="overlay"></div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#">回首頁</a></li>
+                    <li><a href="#">可愛動物區</a></li>
+                    <li><a href="#">野生猛獸區</a></li>
+                    <li><a href="#">海底生物區</a></li>
+                    <li><a href="#">台灣特有種區</a></li>
+                    <li><a href="#">認識工作人員</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--主題圖-->
+    <div class="picture">
+        <a href="https://newslab.nccu.edu.tw/" target="_blank">
+            <img src="tiger.png" style="margin-top: 20%; margin-left: 15%;">
+        </a>
+        <a href="https://newslab.nccu.edu.tw/" target="_blank">
+            <img src="leopard.png" style="margin-top: 85%; margin-left: 95%;">
+        </a>
+        <a href="https://newslab.nccu.edu.tw/" target="_blank">
+            <img src="lion.png" style="margin-top: 10%; margin-left: 155%;">
+        </a>
+    </div>
+    <!--新聞一-->
+    <div class="news">
+        <div class="icon">
+            <img src="tiger.png">
+            <div class="tag-and-title">
+                <div class="tag">#馬路如虎</div>
+                <div class="title">警員殉職揭攔查風險<br>各界呼籲重視職安問題</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="name">【記者施名真綜合報導】</span>
+            <span class="dialogue">新北市於1日凌晨發生一起警員殉職案件，導致新北市土城分局清水派出所所長傷重不治。「假設發生悲劇，警察會受到政府的持續照顧嗎？還是只是一次性的慰問？」...</span>
+            <div class="link">
+                <a href="https://newslab.nccu.edu.tw/" class="link">點我看全文</a>
+            </div>
+        </div>
+    </div>
+    <!--新聞二-->
+    <div class="news">
+        <div class="icon">
+            <img src="leopard.png">
+            <div class="tag-and-title">
+                <div class="tag">#黑豹</div>
+                <div class="title">城市綠蔭成隱憂<br>專家盼落實樹木健檢</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="name">【記者郭謹萱連線報導】</span>
+            <span class="dialogue">3日至5日山陀兒颱風侵台，各縣市路樹倒塌事件頻傳。尤其以登陸地高雄市最為嚴重，多處樹木倒伏阻礙交通，壓毀停於路邊的汽機車，造成嚴重財產損失...</span>
+            <div class="link">
+                <a href="https://newslab.nccu.edu.tw/" class="link">點我看全文</a>
+            </div>
+        </div>
+    </div>
+    <!--新聞三-->
+    <div class="news">
+        <div class="icon">
+            <img src="lion.png">
+            <div class="tag-and-title">
+                <div class="tag">#獅子</div>
+                <div class="title">桃園航空城徵收戶政院前抗議<br>盼政府給合理賠償</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="name">【記者陳樂怡綜合報導】</span>
+            <span class="dialogue">桃園航空城是台灣最大的土地徵收案，徵收過程存在很多爭議，甚至被徵收戶質疑政府承諾跳票。13日上午，桃園市議員游吾和、多位里長和住戶代表帶領大批民眾...</span>
+            <div class="link">
+                <a href="https://newslab.nccu.edu.tw/" class="link">點我看全文</a>
+            </div>
+        </div>
+    </div>
+    <!--結尾-->
+    <div class="end">
+        政大動物園<br>
+        製作人：呂羿穎、許巧昕、潘昱靜
+    </div>
+    <script>
+        const button = document.querySelector('.menu-button');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+
+        button.addEventListener('click', () => {
+            // 切換 menu 的顯示與否
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            }
+            else {
+                menu.style.display = 'none';
+            }
+        });
+        button.addEventListener('click', () => {
+            if (overlay.style.display === 'none' || overlay.style.display === '') {
+                overlay.style.display = 'block';
+            }
+            else {
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+    </script>
+
+</body>
+
+</html>
