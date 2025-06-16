@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCCU ZOO 政大動物園</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color:#FFF8E1;
+        }
+
+        .bar {
+            background-color:#FFD54F;
+            position: sticky;
+            top: 0px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            margin-left: 3%;
+            font-size: 40px;
+            color: #ffffff;
+            font-family: "Lilita One";
+        }
+
+        .botton {
+            margin-right: 3%;
+            width: 35px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(143, 143, 143, 0.858);
+            display: none;
+            z-index: 100;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+
+        .menu {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 30%;
+            background-color: #FFF8E1;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            /* 預設隱藏 */
+            z-index: 999;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin: 10px 0;
+            font-size: x-large;
+            line-height: 200%;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fcac21;
+            font-weight: bold;
+        }
+
+        .menu.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .news {
+            display: flex;
+            justify-content: center;
+            margin-top: 10%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .icon {
+            display: flex;
+            gap: 5%;
+            width: 40%;
+        }
+
+        .news>.icon>img {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+        }
+
+        .tag {
+            color: #fcac21;
+            font-size: x-large;
+            font-weight: 700;
+            line-height: 24px;
+            /* 100% */
+        }
+
+        .title {
+            margin-top: 10px;
+            color: #4E342E;
+            font-size: xx-large;
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .text {
+            margin-left: 3%;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px dashed #505050;
+            background:#FFDF82 ;
+            width: 40%;
+            font-size: x-large;
+            color: #717171;
+            line-height: 180%;
+            text-align: justify;
+        }
+
+        .name {
+            font-weight: 800;
+        }
+
+        .end {
+            background-color: #FFD54F;
+            margin-top: 100px;
+            padding: 15px;
+            box-shadow: 4px 0px 4px 1px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 200%;
+            font-family: "Lilita One";
+            font-weight: bolder;
+            color:#ffffff
+        }
+
+        @media (max-width:1024px) {
+            .news {
+                display: block;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20%;
+            }
+
+            .icon {
+                width: 80%;
+                gap: 5%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .text {
+                width: 70%;
+                margin-top: 3%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width:768px) {
+            .overlay{
+                top:70px
+            }
+            .menu{
+                top:90px
+            }
+            .menu li {
+                font-size: large;
+            }
+            .bar {
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .botton>img {
+                width: 80%;
+            }
+
+            .news>.icon>img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .tag {
+                font-size: large;
+            }
+
+            .title {
+                font-size: x-large;
+            }
+
+            .text {
+                font-size: large;
+            }
+
+            .link>a {
+                font-size: large;
+            }
+
+            .end {
+                font-size: small;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--訂住的bar-->
+    <div class="bar">
+        <div class="logo">
+            NCCU ZOO
+        </div>
+        <div class="botton">
+            <img class="menu-button" src="w_menu botton.svg" style="cursor:pointer">
+            <div class="overlay" id="overlay"></div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="index.html">回首頁</a></li>
+                    <li><a href="cute.html">可愛動物區</a></li>
+                    <li><a href="mean.html">野生猛獸區</a></li>
+                    <li><a href="ocean.html">海底生物區</a></li>
+                    <li><a href="specific.html">台灣特有種區</a></li>
+                    <li><a href="worker.html">認識工作人員</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--人員一-->
+    <div class="news">
+        <div class="icon">
+            <img src="法賢.png">
+            <div class="tag-and-title">
+                <div class="tag">#big boss</div>
+                <div class="title">動物園園長<br>李法賢</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="dialogue">法賢好棒法賢最強最喜歡上法賢的課了！</span>
+        </div>
+    </div>
+    <!--人員二-->
+    <div class="news">
+        <div class="icon">
+            <img src="leopard.png">
+            <div class="tag-and-title">
+                <div class="tag">#插畫大師</div>
+                <div class="title">導覽員<br>公行四 呂羿穎</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="dialogue">3日至5日山陀兒颱風侵台，各縣市路樹倒塌事件頻傳。尤其以登陸地高雄市最為嚴重，多處樹木倒伏阻礙交通，壓毀停於路邊的汽機車，造成嚴重財產損失...</span>
+        </div>
+    </div>
+    <!--人員三-->
+    <div class="news">
+        <div class="icon">
+            <img src="lion.png">
+            <div class="tag-and-title">
+                <div class="tag">#我不知道要打什麼就亂打</div>
+                <div class="title">飼養員<br>新聞四 許巧昕</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="dialogue">桃園航空城是台灣最大的土地徵收案，徵收過程存在很多爭議，甚至被徵收戶質疑政府承諾跳票。13日上午，桃園市議員游吾和、多位里長和住戶代表帶領大批民眾...</span>
+        </div>
+    </div>
+    <!--人員四-->
+    <div class="news">
+        <div class="icon">
+            <img src="lion.png">
+            <div class="tag-and-title">
+                <div class="tag">#我不知道要打什麼就亂打</div>
+                <div class="title">售票員<br>外交四（？） 潘昱靜</div>
+            </div>
+        </div>
+        <div class="text">
+            <span class="dialogue">桃園航空城是台灣最大的土地徵收案，徵收過程存在很多爭議，甚至被徵收戶質疑政府承諾跳票。13日上午，桃園市議員游吾和、多位里長和住戶代表帶領大批民眾...</span>
+        </div>
+    </div>
+    <!--結尾-->
+    <div class="end">
+        政大動物園<br>
+        製作人：呂羿穎、許巧昕、潘昱靜
+    </div>
+    <script>
+        const button = document.querySelector('.menu-button');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+
+        button.addEventListener('click', () => {
+            // 切換 menu 的顯示與否
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            }
+            else {
+                menu.style.display = 'none';
+            }
+        });
+        button.addEventListener('click', () => {
+            if (overlay.style.display === 'none' || overlay.style.display === '') {
+                overlay.style.display = 'block';
+            }
+            else {
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+    </script>
+
+</body>
+
+</html>
