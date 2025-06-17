@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NCCU ZOO 政大動物園</title>
+  <title>可愛動物園 - 可滑動版響應式</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -38,25 +38,21 @@
       z-index: 3;
     }
 
-    a{
-      text-decoration:none;
-    }
-    
     img.animal {
       position: absolute;
-      width: calc(200 / 1440 * 100vw);
+      width: calc(210 / 1440 * 100vw);
       z-index: 2;
     }
 
-    .hamster { right: calc(80 / 1440 * 100vw); top: calc(1050 / 1440 * 100vw); }
-    .koala { right: calc(200 / 1440 * 100vw); top: calc(950 / 1440 * 100vw); }
-    .rabbit { right: calc(300 / 1440 * 100vw); top: calc(1020 / 1440 * 100vw); }
-    .wolf { left: calc(80 / 1440 * 100vw); top: calc(1100 / 1440 * 100vw); }
-    .snake { left: calc(60 / 1440 * 100vw); top: calc(1250 / 1440 * 100vw); }
+    .hamster { right: calc(60 / 1440 * 100vw); top: calc(1050 / 1440 * 100vw); }
+    .koala { right: calc(190 / 1440 * 100vw); top: calc(870 / 1440 * 100vw); }
+    .rabbit { right: calc(250 / 1440 * 100vw); top: calc(1020 / 1440 * 100vw); }
+    .wolf { left: calc(80 / 1440 * 100vw); top: calc(1850 / 1440 * 100vw); }
+    .snake { left: calc(40 / 1440 * 100vw); top: calc(1680 / 1440 * 100vw); }
     .ox { left: calc(60 / 1440 * 100vw); top: calc(2000 / 1440 * 100vw); }
     .lion { left: calc(200 / 1440 * 100vw); top: calc(1400 / 1440 * 100vw); }
-    .tiger { left: calc(60 / 1440 * 100vw); top: calc(1800 / 1440 * 100vw); }
-    .panther { left: calc(170 / 1440 * 100vw); top: calc(1100/ 1440 * 100vw); }
+    .tiger { left: calc(60 / 1440 * 100vw); top: calc(1250 / 1440 * 100vw); }
+    .panther { left: calc(170 / 1440 * 100vw); top: calc(1100 / 1440 * 100vw); }
     .dolphin { right: calc(40 / 1440 * 100vw); top: calc(1650 / 1440 * 100vw); }
     .turtle { right: calc(60 / 1440 * 100vw); top: calc(1900 / 1440 * 100vw); }
     .fish { right: calc(160 / 1440 * 100vw); top: calc(1750 / 1440 * 100vw); }
@@ -82,22 +78,22 @@
 <body>
   <div class="zoo-container">
     <img src="人.png" alt="導覽員" class="character" />
-    <img src="mouse.png" alt="倉鼠" class="animal hamster" />
-    <img src="koala.png" alt="無尾熊" class="animal koala" />
-    <img src="rabbit.png" alt="兔子" class="animal rabbit" />
-    <img src="wolf.png" alt="狼" class="animal wolf" />
-    <img src="bear.png" alt="熊" class="animal snake" />
-    <img src="cow.png" alt="黃牛" class="animal ox" />
-    <img src="lion.png" alt="獅子" class="animal lion" />
-    <img src="tiger.png" alt="老虎" class="animal tiger" />
-    <img src="leopard.png" alt="黑豹" class="animal panther" />
-    <img src="dolphin.png" alt="海豚" class="animal dolphin" />
-    <img src="turtle.png" alt="海龜" class="animal turtle" />
-    <img src="whale.png" alt="鯨魚" class="animal fish" />
-    <a href="cute.html" class="button-area">點擊前往可愛動物區</a>
-    <a href="specific.html" class="land-button">點擊前往台灣特有種區</a>
-    <a href="mean" class="beast-button">點擊前往猛獸區</a>
-    <a href="ocean" class="ocean-button">點擊前往海洋動物區</a>
+    <img src="倉鼠.png" alt="倉鼠" class="animal hamster" />
+    <img src="無尾熊.png" alt="無尾熊" class="animal koala" />
+    <img src="兔子.png" alt="兔子" class="animal rabbit" />
+    <img src="狼.png" alt="狼" class="animal wolf" />
+    <img src="蛇.png" alt="蛇" class="animal snake" />
+    <img src="黃牛.png" alt="黃牛" class="animal ox" />
+    <img src="獅子.png" alt="獅子" class="animal lion" />
+    <img src="老虎.png" alt="老虎" class="animal tiger" />
+    <img src="黑豹.png" alt="黑豹" class="animal panther" />
+    <img src="海豚.png" alt="海豚" class="animal dolphin" />
+    <img src="海龜.png" alt="海龜" class="animal turtle" />
+    <img src="魚.png" alt="魚" class="animal fish" />
+    <div class="button-area">點擊前往可愛動物區</div>
+    <div class="land-button">點擊前往台灣特有種區</div>
+    <div class="beast-button">點擊前往猛獸區</div>
+    <div class="ocean-button">點擊前往海洋動物區</div>
   </div>
 </body>
 </html>
