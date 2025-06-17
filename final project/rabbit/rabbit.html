@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NCCU ZOO 青年專題</title>
+  <title>NCCU ZOO </title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Lilita+One&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -24,7 +24,7 @@
       align-items: center;
       justify-content: space-between;
       z-index: 1000;
-      box-shadow: none; /* 無陰影 */
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);  
     }
 
     .logo {
@@ -111,18 +111,20 @@
       padding: 15px;
       text-align: center;
       font-family: "Lilita One";
-      font-weight: bold;
       color: #999999;
-      margin-top: 80px;
     }
 
     @media (max-width: 768px) {
       .bar {
         height: 70px;
+        margin-top: 100px;
+        box-shadow: 4px 0px 4px 1px rgba(0, 0, 0, 0.5);
+        line-height: 200%;
+        font-weight: bolder;
       }
 
       .logo {
-        font-size: 28px;
+        font-size: 25px;
       }
 
       .headline {
@@ -136,6 +138,9 @@
       .content-block {
         padding: 20px;
       }
+     .end {
+        font-size: small;
+      }
     }
   </style>
 </head>
@@ -143,9 +148,10 @@
 <body>
   <div class="bar">
     <div class="logo">NCCU ZOO</div>
-    <a href="final project/cute.html" style="text-decoration: none;"></a>
     <div class="botton">
-      <button>Back</button>
+      <a href="../cute.html" style="text-decoration: none;">
+        <button>Back</button>
+      </a>
     </div>
   </div>
 
